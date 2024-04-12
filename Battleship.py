@@ -24,8 +24,17 @@ ship_col = random_col(board)
 
 for turn in range(4):
   print("Turn", turn + 1)
-  guess_row = int(input("Guess the row: "))
-  guess_col = int(input("Guess the column: "))
+  print("")
+
+  while True:
+    try:
+      guess_row = int(input("Please enter a row number: "))
+      guess_col = int(input("Please enter a column number: "))
+      print("")
+    except ValueError:
+      print("Please enter a valid integer row and column number.")
+      print("")
+    break
 
   if guess_row == ship_row and guess_col == ship_col:
     print("Congratulations! You sank my battleship!")
@@ -42,6 +51,7 @@ for turn in range(4):
     print("")
     print_board(board)
     print("")
-  
+
     if turn == 3:
       print("Game Over.")
+      print("")
